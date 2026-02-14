@@ -1,0 +1,57 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thoughts — Compartilhe sua mente</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <header class="main-header">
+      <nav class="navbar container">
+        <a href="/" class="navbar-logo">
+          <i class="bi bi-lightbulb-fill"></i>
+          THOUGHTS<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+          {{#if session.userid}}
+            <a href="/toughts/dashboard">Dashboard</a>
+            <a href="/logout">Sair</a>
+          {{else}}
+            <li><a href="/login" class="nav-item">Entrar</a></li>
+            <li><a href="/register" class="btn-primary">Cadastrar</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      {{#if messages.message}}
+        <div class="content-message">
+          {{messages.message}}
+        </div>
+      {{/if}}
+      {{{body}}}
+    </main>
+
+    {{!-- <footer class="main-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Thoughts. Compartilhe sua mente.</p>
+        <div class="footer-social">
+          <i class="bi bi-github"></i>
+        </div>
+      </div>
+    </footer> --}}
+
+  </body>
+</html>
